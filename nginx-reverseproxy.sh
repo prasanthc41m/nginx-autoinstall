@@ -12,7 +12,7 @@ sed -i '7d;8d' file.txt
 sed -i "s/example.com/$domain/g" file.txt
 #sed -i 's/try_files $uri $uri\/ =404/proxy_pass http:\/\/localhost:1020/g' file.txt
 read -p 'Enter server port number: ' port
-sed -i 's/try_files $uri $uri\/ =404/proxy_pass http:\/\/localhost:port/g' file.txt
+sed -i 's/try_files $uri $uri\/ =404/proxy_pass http:\/\/127.0.0.1:port/g' file.txt
 sed -i "s/port/$port/g" file.txt
 #apt install -y python3-certbot-nginx && certbot --nginx 
 cat file.txt
