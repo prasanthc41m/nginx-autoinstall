@@ -13,3 +13,4 @@ sed -i 's/#/ /g' demo.com
 sed -i "s/example.com/$domain/g" demo.com
 mv demo.com $domain
 apt install -y python3-certbot-nginx && certbot --nginx 
+/etc/init.d/nginx restart
