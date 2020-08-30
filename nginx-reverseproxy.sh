@@ -15,5 +15,5 @@ sed -i 's/try_files $uri $uri\/ =404/proxy_pass http:\/\/127.0.0.1:port/g' file.
 sed -i "s/port/$port/g" file.txt
 apt install -y python3-certbot-nginx && certbot --nginx 
 cat file.txt
-mv file.txt $domain
+mv file.txt /etc/nginx/sites-enabled/$domain
 /etc/init.d/nginx restart
