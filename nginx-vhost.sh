@@ -8,7 +8,8 @@ systemctl enable nginx.service && systemctl start nginx.service
 mkdir /var/www/$domain
 cd /var/www/$domain
 echo "<!DOCTYPE html><html><body><h1>$domain is working</h1></body></html>" > index.html
-tail -13 /etc/nginx/sites-enabled/default > /etc/nginx/sites-enabled/demo.com
+cp /etc/nginx/sites-enabled/default /etc/nginx/sites-enabled/original
+tail -13 /etc/nginx/sites-enabled/original > /etc/nginx/sites-enabled/demo.com
 cd /etc/nginx/sites-enabled/
 sed -i 's/#/ /g' demo.com
 sed -i "s/example.com/$domain/g" demo.com
