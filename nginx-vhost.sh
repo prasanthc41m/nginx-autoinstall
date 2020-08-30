@@ -4,6 +4,7 @@
 #
 read -p 'Enter Domain name: ' domain
 apt-get update && apt -y install nginx
+systemctl enable nginx.service && systemctl start nginx.service
 mkdir /var/www/$domain
 cd /var/www/$domain
 echo "<!DOCTYPE html><html><body><h1>$domain is working</h1></body></html>" > index.html
