@@ -2,9 +2,9 @@
 #
 #Nginx reverse proxy and LetsEncrypt
 #
+read -p 'Enter domain name: ' domain
 apt-get update && apt -y install nginx
 systemctl enable nginx.service && systemctl start nginx.service
-read -p 'Enter domain name: ' domain
 tail -13 /etc/nginx/sites-enabled/default > $domain
 mv $domain /tmp/file.txt
 cd /tmp
