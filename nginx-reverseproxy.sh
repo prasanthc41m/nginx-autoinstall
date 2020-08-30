@@ -3,6 +3,7 @@
 #Nginx reverse proxy and LetsEncrypt
 #
 apt-get update && apt -y install nginx
+systemctl enable nginx.service && sudo systemctl start nginx.service
 read -p 'Enter domain name: ' domain
 tail -13 /etc/nginx/sites-enabled/default > $domain
 mv $domain /tmp/file.txt
