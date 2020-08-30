@@ -3,6 +3,7 @@
 #Nginx reverse proxy and LetsEncrypt
 #
 read -p 'Enter domain name: ' domain
+read -p 'Enter server port number: ' port
 apt-get update && apt -y install nginx
 systemctl enable nginx.service && systemctl start nginx.service
 tail -13 /etc/nginx/sites-enabled/default > $domain
@@ -11,7 +12,6 @@ cd /tmp
 sed -i 's/#/ /g' file.txt
 sed -i '7d;8d' file.txt
 sed -i "s/example.com/$domain/g" file.txt
-read -p 'Enter server port number: ' port
 sed -i 's/try_files $uri $uri\/ =404/proxy_pass http:\/\/127.0.0.1:port/g' file.txt
 sed -i "s/port/$port/g" file.txt
 apt install -y python3-certbot-nginx && certbot --nginx 
