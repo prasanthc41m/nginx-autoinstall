@@ -28,4 +28,5 @@ sed -i 's/#/ /g' change.com
 sed -i "s/example.com/$domain/g" change.com
 #sed -i 's/try_files $uri $uri\/ =404/proxy_pass http:\/\/localhost:8008/g' change.com
 mv change.com $domain
-#apt install -y python3-certbot-nginx && certbot --nginx 
+apt install -y python3-certbot-nginx && certbot --nginx 
+service nginx restart
