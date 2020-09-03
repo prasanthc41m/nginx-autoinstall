@@ -13,8 +13,8 @@ server {
 
 	server_name example.com;
 
-	root /var/www/example.com;
-	index index.html;
+#	root /var/www/example.com;
+#	index index.html;
 
 	location / {
 		try_files $uri $uri/ =404;
