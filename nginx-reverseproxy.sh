@@ -6,7 +6,7 @@ read -p 'Enter domain name: ' domain
 
 apt-get update && apt -y install nginx
 systemctl enable nginx.service && systemctl start nginx.service
-cat << EOF | tee -a /etc/nginx/sites-enabled/$domain
+cat << EOF | tee -a /tmp/$domain
 server {
 	listen 80;
 	listen [::]:80;
@@ -21,7 +21,7 @@ server {
 	}
 }
 EOF
-mv /etc/nginx/sites-enabled/$domain /tmp/file.txt
+mv /tmp/$domain /tmp/file.txt
 cd /tmp
 sed -i "s/example.com/$domain/g" file.txt
 read -p 'Enter server port number: ' port
