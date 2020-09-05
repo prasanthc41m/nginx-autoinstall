@@ -13,7 +13,7 @@ cat << EOF | tee -a /etc/nginx/sites-enabled/change.com
         listen 80;
         listen [::]:80;
 
-        root /var/www/example.com/html;
+        root /var/www/example.com;
         index index.html index.htm index.nginx-debian.html;
 
         server_name example.com www.example.com;
