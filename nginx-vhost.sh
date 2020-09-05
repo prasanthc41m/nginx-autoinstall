@@ -7,7 +7,7 @@ apt-get update && apt -y install nginx
 mkdir /var/www/$domain
 cd /var/www/$domain
 echo "<!DOCTYPE html><html><body><h1>Success!! $domain is working</h1></body></html>" > index.html
-cat < EOF | tee -a /etc/nginx/sites-enabled/change.com
+cat << EOF | tee -a /etc/nginx/sites-enabled/change.com
 ##Virtual Host
 	server {
         listen 80;
