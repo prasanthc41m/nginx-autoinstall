@@ -24,7 +24,7 @@ cat << EOF | tee -a /etc/nginx/sites-enabled/change.com
 }
 EOF
 cd /etc/nginx/sites-enabled/
-sed -i 's/#/ /g' change.com
+#sed -i 's/#/ /g' change.com
 sed -i "s/example.com/$domain/g" change.com
 #sed -i 's/try_files $uri $uri\/ =404/proxy_pass http:\/\/localhost:8008/g' change.com
 mv change.com $domain
