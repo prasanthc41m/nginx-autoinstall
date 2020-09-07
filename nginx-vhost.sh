@@ -22,6 +22,7 @@ cat << EOF | tee -a /etc/nginx/sites-enabled/change.com
                 try_files $uri $uri/ =404;
         }
 }
+##Wordpress PHP
 server {
 
     location = /favicon.ico { log_not_found off; access_log off; }
