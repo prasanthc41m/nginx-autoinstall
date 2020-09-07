@@ -22,6 +22,25 @@ cat << EOF | tee -a /etc/nginx/sites-enabled/change.com
                 try_files $uri $uri/ =404;
         }
 }
+server {
+
+    location = /favicon.ico { log_not_found off; access_log off; }
+    location = /robots.txt { log_not_found off; access_log off; allow all; }
+    location ~* \.(css|gif|ico|jpeg|jpg|js|png)$ {
+        expires max;
+        log_not_found off;
+    }
+
+}
+server {
+ 
+    location / {
+        #try_files $uri $uri/ =404;
+        try_files $uri $uri/ /index.php$is_args$args;
+    }
+ 
+}
+
 EOF
 cd /etc/nginx/sites-enabled/
 #sed -i 's/#/ /g' change.com
