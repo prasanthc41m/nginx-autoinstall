@@ -3,7 +3,7 @@
 ##Nginx and LetsEncrypt
 #
 read -p 'Enter Domain name: ' domain
-apt-get update && apt -y install nginx
+apt-get update && apt -y install nginx nginx-full nginx-common
 mkdir /var/www/$domain
 cd /var/www/$domain
 echo "<!DOCTYPE html><html><body><h1>Success!! $domain is working</h1></body></html>" > index.html
