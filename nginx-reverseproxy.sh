@@ -4,7 +4,7 @@
 #
 read -p 'Enter domain name: ' domain
 
-apt-get update && apt -y install nginx
+apt-get update && apt -y install nginx nginx-full nginx-common
 systemctl enable nginx.service && systemctl start nginx.service
 cat << EOF | tee -a /tmp/$domain
 server {
