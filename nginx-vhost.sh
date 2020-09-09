@@ -7,42 +7,7 @@ apt-get update && apt -y install nginx nginx-full nginx-common
 mkdir /var/www/$domain
 cd /var/www/$domain
 echo "<!DOCTYPE html><html><body><h1>Success!! $domain is working</h1></body></html>" > index.html
-cat << EOF | tee -a /etc/nginx/sites-enabled/change.com
-##Virtual Host
-	server {
-        listen 80;
-        listen [::]:80;
-
-        root /var/www/example.com;
-        index index.html index.htm index.nginx-debian.html;
-
-        server_name example.com www.example.com;
-
-        location / {
-                try_files $uri $uri/ =404;
-        }
-}
-##Wordpress PHP
-server {
-
-    location = /favicon.ico { log_not_found off; access_log off; }
-    location = /robots.txt { log_not_found off; access_log off; allow all; }
-    location ~* \.(css|gif|ico|jpeg|jpg|js|png)$ {
-        expires max;
-        log_not_found off;
-    }
-
-}
-server {
- 
-    location / {
-        #try_files $uri $uri/ =404;
-        try_files $uri $uri/ /index.php$is_args$args;
-    }
- 
-}
-
-EOF
+cat | curl https://raw.githubusercontent.com/prasanthc41m/nginx-install/master/default > /etc/nginx/sites-enabled/change.com
 cd /etc/nginx/sites-enabled/
 #sed -i 's/#/ /g' change.com
 sed -i "s/example.com/$domain/g" change.com
