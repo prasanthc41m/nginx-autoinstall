@@ -6,21 +6,7 @@ read -p 'Enter domain name: ' domain
 
 apt-get update && apt -y install nginx nginx-full nginx-common
 systemctl enable nginx.service && systemctl start nginx.service
-cat << EOF | tee -a /tmp/$domain
-server {
-	listen 80;
-	listen [::]:80;
-
-	server_name example.com;
-
-#	root /var/www/example.com;
-#	index index.html;
-
-	location / {
-		try_files $uri $uri/ =404;
-	}
-}
-EOF
+curl https://raw.githubusercontent.com/prasanthc41m/nginx-install/master/default | head -n 13 > /tmp/$domain
 mv /tmp/$domain /tmp/file.txt
 cd /tmp
 sed -i "s/example.com/$domain/g" file.txt
