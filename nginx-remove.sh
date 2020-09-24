@@ -1,4 +1,5 @@
 #/bin/sh
+echo 'Uninstalling nginx and certbot'
 service nginx stop
 apt-get remove --purge nginx nginx-full nginx-common -y
 rm -rf /etc/nginx
