@@ -6,7 +6,7 @@ Point the DNS for your domain to server IP. Copy below simple commands to termin
 
 ``` 
 sudo su
-cd /tmp && wget https://raw.githubusercontent.com/prasanthc41m/nginx-install/master/nginx-vhost.sh && bash nginx-vhost.sh
+cd /tmp && wget https://raw.githubusercontent.com/prasanthc41m/nginx-install/master/nginx-vhost.sh | bash 
 ```
 Insert domain name of the wesite to access using https://example.com
 
@@ -18,7 +18,7 @@ Point the DNS for your domain to server IP. Copy below simple commands to termin
 
 ``` 
 sudo su
-cd /tmp && wget https://raw.githubusercontent.com/prasanthc41m/nginxrproxy/master/nginx-reverseproxy.sh && bash nginx-reverseproxy.sh
+cd /tmp && wget https://raw.githubusercontent.com/prasanthc41m/nginxrproxy/master/nginx-reverseproxy.sh | bash 
 ```
 Insert domain name and port number of the server to access using https://example.com instead of http://127.0.0.1:8080
  
