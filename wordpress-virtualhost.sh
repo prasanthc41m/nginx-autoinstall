@@ -60,3 +60,4 @@ apt install -y python3-certbot-nginx && certbot --nginx
 fi
 service nginx restart
 echo "Installtion Finished! "
+rm -rf *.sh.*
