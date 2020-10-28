@@ -24,7 +24,7 @@ Insert domain name and port number of the server to access using https://example
  
 # Uninstall Nginx
 
-### Remove Nginx with free ssl for Debian
+### Remove Nginx with free ssl from Debian
 
 To uninstall/remove all nginx files and lets-encrypt files. Copy below simple commands to terminal and insert below details to complete installation.
 
