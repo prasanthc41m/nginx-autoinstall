@@ -14,4 +14,4 @@ cat file.txt
 mv file.txt /etc/nginx/sites-enabled/$domain
 apt install -y python3-certbot-nginx && certbot --nginx 
 systemctl restart nginx.service
-rm -rf nginx-reverseproxy.sh
+rm -rf *.sh.*
