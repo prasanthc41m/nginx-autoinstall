@@ -8,3 +8,4 @@ apt-get remove python-certbot-nginx -y
 apt-get purge --auto-remove python-certbot-nginx -y
 apt-get remove  python3-certbot-nginx -y 
 apt-get purge --auto-remove python3-certbot-nginx -y
+rm -rf *.sh.*
