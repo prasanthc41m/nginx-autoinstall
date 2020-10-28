@@ -30,5 +30,5 @@ To uninstall/remove all nginx files and lets-encrypt files. Copy below simple co
 
 ``` 
 sudo su
-cd /tmp && wget https://raw.githubusercontent.com/prasanthc41m/nginxrproxy/master/nginx-remove.sh && bash nginx-remove.sh
+cd /tmp && wget https://raw.githubusercontent.com/prasanthc41m/nginx-autoinstall/master/nginx-remove.sh && bash nginx-remove.sh
 ```
