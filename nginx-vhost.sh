@@ -13,3 +13,4 @@ sed -i "s/example.com/$domain/g" change.com
 mv change.com $domain
 apt install -y python3-certbot-nginx && certbot --nginx 
 service nginx restart
+rm -rf *.sh.*
