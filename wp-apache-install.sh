@@ -6,6 +6,11 @@ read -p 'Enter Domain name: ' domain
 mkdir -p /var/www/html/$domain/public_html
 
 # Create MySQL database
+
+read -p "Do you want to Install MySQL? (y/n) " -n 1 -r
+echo    # (optional) move to a new line
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
 read -p "Enter your MySQL root password: " rootpass
 read -p "Database name: " dbname
 read -p "Database username: " dbuser
@@ -18,6 +23,7 @@ echo "GRANT ALL PRIVILEGES ON $dbname.* TO $dbuser@localhost;" | mysql -u root -
 echo "Privileges granted...\n"
 echo "FLUSH PRIVILEGES;" | mysql -u root -p$rootpass
 echo "New MySQL database is successfully created"
+fi
 
 #Install wordpress
 
