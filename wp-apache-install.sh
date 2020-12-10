@@ -20,10 +20,27 @@ echo "New MySQL database is successfully created"
 
 #Install wordpress
 
-ead -p "Do you want to Install LetsEncrypt SSL? (y/n) " -n 1 -r
+ead -p "Do you want to Install Wordpress? (y/n) " -n 1 -r
 echo    # (optional) move to a new line
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
+
+mkdir -p /var/www/html/$domain/public_html
+#mkdir /var/www/html/src/
+cd /tmp/
+wget http://wordpress.org/latest.tar.gz
+tar -zxvf latest.tar.gz
+mv latest.tar.gz wordpress-`date "+%Y-%m-%d"`.tar.gz
+cp -R /var/www/html/src/wordpress/* /var/www/html/$domain/public_html/
+chown -R www-data:www-data /var/www/html/$domain/
+curl https://raw.githubusercontent.com/prasanthc41m/nginx-autoinstall/master/example.conf > /etc/apache2/sites-available/change.conf
+cd /etc/apache2/sites-available/
+sed -i "s/example.com/$domain/g" change.com
+read -p 'Enter 1st part of Domain name eg www.example: ' 1domain
+read -p 'Enter last part of Domain name eg .com: ' 2domain
+sed -i "s/example\.com/$1domain\.2domain/g" change.com
+mv change.com $domain
+
 cd /var/www/html/$domain/public_html
 cp wp-config-sample.php wp-config.php
 chmod 640 wp-config.php # Keep this file safe
@@ -33,21 +50,6 @@ curl https://api.wordpress.org/secret-key/1.1/salt/ >> wp-config.php
 grep -A 50 -B 3 'Table prefix' wp-config-sample.php >> wp-config.php
 sed -i "s/database_name_here/$dbname/;s/username_here/$dbuser/;s/password_here/$userpass/" wp-config.php
 
-sudo mkdir -p /var/www/html/$domain/public_html
-sudo mkdir /var/www/html/src/
-cd /var/www/html/src/
-sudo wget http://wordpress.org/latest.tar.gz
-sudo tar -zxvf latest.tar.gz
-sudo mv latest.tar.gz wordpress-`date "+%Y-%m-%d"`.tar.gz
-sudo cp -R /var/www/html/src/wordpress/* /var/www/html/$domain/public_html/
-sudo chown -R www-data:www-data /var/www/html/$domain/
-curl https://raw.githubusercontent.com/prasanthc41m/nginx-autoinstall/master/example.conf > /etc/apache2/sites-available/change.conf
-cd /etc/apache2/sites-available/
-sed -i "s/example.com/$domain/g" change.com
-read -p 'Enter 1st part of Domain name eg www.example: ' 1domain
-read -p 'Enter last part of Domain name eg .com: ' 2domain
-sed -i "s/example\.com/$1domain\.2domain/g" change.com
-mv change.com $domain
 sudo a2ensite $domain.conf
 sudo apache2ctl -M
 sudo a2enmod rewrite
