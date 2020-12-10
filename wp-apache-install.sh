@@ -49,8 +49,8 @@ sed -i "s/database_name_here/$dbname/;s/username_here/$dbuser/;s/password_here/$
 fi
 
 chown -R www-data:www-data /var/www/html/$domain/
-curl https://raw.githubusercontent.com/prasanthc41m/nginx-autoinstall/master/example.conf > /etc/apache2/sites-available/change.conf
-cd /etc/apache2/sites-available/
+curl https://raw.githubusercontent.com/prasanthc41m/nginx-autoinstall/master/example.conf > /etc/apache2/sites-enabled/change.conf
+cd /etc/apache2/sites-enabled/
 sed -i "s/example.com/$domain/g" change.com
 read -p 'Enter 1st part of Domain name eg www.example: ' 1domain
 read -p 'Enter last part of Domain name eg .com: ' 2domain
