@@ -52,7 +52,7 @@ cd /tmp/
 wget http://wordpress.org/latest.tar.gz
 tar -zxvf latest.tar.gz
 mv latest.tar.gz wordpress-`date "+%Y-%m-%d"`.tar.gz
-cp -R /var/www/html/src/wordpress/* /var/www/html/$domain/public_html/
+cp -R /tmp/wordpress/* /var/www/html/$domain/public_html/
 
 cd /var/www/html/$domain/public_html
 cp wp-config-sample.php wp-config.php
