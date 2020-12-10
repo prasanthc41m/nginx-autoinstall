@@ -19,6 +19,7 @@ echo "New MySQL database is successfully created"
 
 #Install wordpress
 
+read -p 'Enter Domain name: ' domain
 cd /var/www/html/$domain/public_html
 cp wp-config-sample.php wp-config.php
 chmod 640 wp-config.php # Keep this file safe
@@ -28,7 +29,6 @@ curl https://api.wordpress.org/secret-key/1.1/salt/ >> wp-config.php
 grep -A 50 -B 3 'Table prefix' wp-config-sample.php >> wp-config.php
 sed -i "s/database_name_here/$dbname/;s/username_here/$dbuser/;s/password_here/$userpass/" wp-config.php
 
-read -p 'Enter Domain name: ' domain
 sudo mkdir -p /var/www/html/$domain/public_html
 sudo mkdir /var/www/html/src/
 cd /var/www/html/src/
