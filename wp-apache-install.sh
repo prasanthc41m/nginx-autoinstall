@@ -8,11 +8,11 @@ mkdir -p /var/www/html/$domain/public_html
 chown -R www-data:www-data /var/www/html/$domain/
 curl https://raw.githubusercontent.com/prasanthc41m/nginx-autoinstall/master/example.conf > /etc/apache2/sites-enabled/change.conf
 cd /etc/apache2/sites-enabled/
-sed -i "s/example.com/$domain/g" change.com
+sed -i "s/example.com/$domain/g" change.conf
 read -p 'Enter 1st part of Domain name eg www.example: ' 1domain
 read -p 'Enter last part of Domain name eg .com: ' 2domain
-sed -i "s/example\.com/$1domain\.2domain/g" change.com
-mv change.com $domain
+sed -i "s/example\.com/$1domain\.2domain/g" change.conf
+mv change.conf $domain
 sudo a2ensite $domain.conf
 sudo apache2ctl -M
 sudo a2enmod rewrite
