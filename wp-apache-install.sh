@@ -37,8 +37,8 @@ echo "GRANT ALL PRIVILEGES ON $dbname.* TO $dbuser@localhost;" | mysql -u root -
 echo "Privileges granted...\n"
 echo "FLUSH PRIVILEGES;" | mysql -u root -p$rootpass
 echo "New MySQL database is successfully created"
-fi
 wget -O	/var/www/html/$domain/public_html/db.php http://www.adminer.org/latest.php
+fi
 
 #Install wordpress
 
