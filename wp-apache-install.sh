@@ -18,7 +18,7 @@ sudo a2ensite $domain.conf
 sudo apache2ctl -M
 sudo a2enmod rewrite
 sudo systemctl reload apache2
-wget -O /var/www/html/$domain/public_html/ https://raw.githubusercontent.com/prasanthc41m/sitemaintenance/main/index.html
+wget -O /var/www/html/$domain/public_html/index.html https://raw.githubusercontent.com/prasanthc41m/sitemaintenance/main/index.html
 
 # Create MySQL database
 
