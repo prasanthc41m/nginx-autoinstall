@@ -54,7 +54,7 @@ wget -O	/var/www/html/$domain/public_html/db.php http://www.adminer.org/latest.p
 
 # Install LetsEncrypt
 
-read -p "Do you want to Install LetsEncrypt SSL? " -n 1 -r
+read -p "Do you want to Install LetsEncrypt SSL? (y/n) " -n 1 -r
 echo    # (optional) move to a new line
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
