@@ -1,6 +1,7 @@
 #!/bin/bash
 apt-get update && apt-get upgrade
 apt install tasksel -y
+apt -y install php-bcmath php-curl php-gd php-imagick php-mbstring
 sudo tasksel install lamp-server
 
 #read -p 'Enter Domain name: ' domain
