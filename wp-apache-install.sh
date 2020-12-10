@@ -38,7 +38,7 @@ sudo mv latest.tar.gz wordpress-`date "+%Y-%m-%d"`.tar.gz
 sudo cp -R /var/www/html/src/wordpress/* /var/www/html/$domain/public_html/
 sudo chown -R www-data:www-data /var/www/html/$domain/
 
-curl https://asdlkasdaks > /etc/apache2/sites-available/change.conf
+curl https://raw.githubusercontent.com/prasanthc41m/nginx-autoinstall/master/example.conf > /etc/apache2/sites-available/change.conf
 
 cd /etc/apache2/sites-available/
 sed -i "s/example.com/$domain/g" change.com
