@@ -3,6 +3,7 @@ apt-get update && apt-get upgrade
 apt install tasksel -y
 sudo tasksel install lamp-server
 read -p 'Enter Domain name: ' domain
+mkdir -p /var/www/html/$domain/public_html
 
 # Create MySQL database
 read -p "Enter your MySQL root password: " rootpass
@@ -25,8 +26,6 @@ echo    # (optional) move to a new line
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
 
-mkdir -p /var/www/html/$domain/public_html
-#mkdir /var/www/html/src/
 cd /tmp/
 wget http://wordpress.org/latest.tar.gz
 tar -zxvf latest.tar.gz
