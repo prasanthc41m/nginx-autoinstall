@@ -2,6 +2,7 @@
 apt-get update && apt-get upgrade
 apt install tasksel -y
 sudo tasksel install lamp-server
+read -p 'Enter Domain name: ' domain
 
 # Create MySQL database
 read -p "Enter your MySQL root password: " rootpass
@@ -19,7 +20,10 @@ echo "New MySQL database is successfully created"
 
 #Install wordpress
 
-read -p 'Enter Domain name: ' domain
+ead -p "Do you want to Install LetsEncrypt SSL? (y/n) " -n 1 -r
+echo    # (optional) move to a new line
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
 cd /var/www/html/$domain/public_html
 cp wp-config-sample.php wp-config.php
 chmod 640 wp-config.php # Keep this file safe
@@ -37,9 +41,7 @@ sudo tar -zxvf latest.tar.gz
 sudo mv latest.tar.gz wordpress-`date "+%Y-%m-%d"`.tar.gz
 sudo cp -R /var/www/html/src/wordpress/* /var/www/html/$domain/public_html/
 sudo chown -R www-data:www-data /var/www/html/$domain/
-
 curl https://raw.githubusercontent.com/prasanthc41m/nginx-autoinstall/master/example.conf > /etc/apache2/sites-available/change.conf
-
 cd /etc/apache2/sites-available/
 sed -i "s/example.com/$domain/g" change.com
 read -p 'Enter 1st part of Domain name eg www.example: ' 1domain
@@ -49,6 +51,7 @@ mv change.com $domain
 sudo a2ensite $domain.conf
 sudo apache2ctl -M
 sudo a2enmod rewrite
+fi
 sudo systemctl reload apache2
 wget -O	/var/www/html/$domain/public_html/db.php http://www.adminer.org/latest.php
 
