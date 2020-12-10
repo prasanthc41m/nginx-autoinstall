@@ -4,9 +4,9 @@ apt install tasksel -y
 sudo tasksel install lamp-server
 
 #read -p 'Enter Domain name: ' domain
-read -p 'Enter 1st part of Domain name eg www.example: ' 1domain
-read -p 'Enter last part of Domain name eg .com: ' 2domain
-read $
+read -p 'Enter 1st part of Domain name: ' 1domain
+read -p 'Enter last part of Domain name: ' 2domain
+read '$1domain.2domain ' domain 
 mkdir -p /var/www/html/$domain/public_html
 chown -R www-data:www-data /var/www/html/$domain/
 curl https://raw.githubusercontent.com/prasanthc41m/nginx-autoinstall/master/example.conf > /etc/apache2/sites-enabled/change.conf
