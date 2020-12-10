@@ -52,4 +52,13 @@ sudo a2enmod rewrite
 sudo systemctl reload apache2
 wget -O	/var/www/html/$domain/public_html/db.php http://www.adminer.org/latest.php
 
+# Install LetsEncrypt
 
+read -p "Do you want to Install LetsEncrypt SSL? " -n 1 -r
+echo    # (optional) move to a new line
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+apt install -y python3-certbot-apache && certbot --apache 
+fi
+systemctl reload apache2
+echo "Installtion Finished! "
