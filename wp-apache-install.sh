@@ -19,7 +19,7 @@ echo "New MySQL database is successfully created"
 
 #Install wordpress
 
-cd /var/www/$domain/
+cd /var/www/$domain/public_html
 cp wp-config-sample.php wp-config.php
 chmod 640 wp-config.php # Keep this file safe
 mkdir uploads
