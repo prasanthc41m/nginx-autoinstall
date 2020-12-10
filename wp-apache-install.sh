@@ -54,11 +54,10 @@ grep -A 1 -B 50 'since 2.6.0' wp-config-sample.php > wp-config.php
 curl https://api.wordpress.org/secret-key/1.1/salt/ >> wp-config.php
 grep -A 50 -B 3 'Table prefix' wp-config-sample.php >> wp-config.php
 sed -i "s/database_name_here/$dbname/;s/username_here/$dbuser/;s/password_here/$userpass/" wp-config.php
-
+fi
 sudo a2ensite $domain.conf
 sudo apache2ctl -M
 sudo a2enmod rewrite
-fi
 sudo systemctl reload apache2
 wget -O	/var/www/html/$domain/public_html/db.php http://www.adminer.org/latest.php
 
