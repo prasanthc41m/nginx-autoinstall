@@ -11,7 +11,7 @@ chown -R www-data:www-data /var/www/html/$domain/
 curl https://raw.githubusercontent.com/prasanthc41m/nginx-autoinstall/master/example.conf > /etc/apache2/sites-enabled/change.conf
 cd /etc/apache2/sites-enabled/
 sed -i "s/example.com/$domain/g" change.conf
-sed -i "s/com/.2domain/g" change.conf
+sed -i "s/com/.$2domain/g" change.conf
 sed -i "s/example/$1domain/g" change.conf
 mv change.conf $domain
 sudo a2ensite $domain.conf
