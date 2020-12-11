@@ -15,7 +15,7 @@ cd /etc/apache2/sites-enabled/
 sed -i "s/example.com/$domain/g" change.conf
 sed -i "s/com/$b/g" change.conf
 sed -i "s/example/$a/g" change.conf
-mv change.conf $domain
+mv change.conf $domain.conf
 sudo a2ensite $domain.conf
 sudo apache2ctl -M
 sudo a2enmod rewrite
