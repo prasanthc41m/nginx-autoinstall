@@ -6,7 +6,7 @@ Point the DNS for your domain to server IP. Copy below simple commands to termin
 
 ``` 
 sudo su
-cd /tmp && wget wget https://raw.githubusercontent.com/prasanthc41m/nginx-install/master/nginx-vhost.sh && bash nginx-vhost.sh
+cd /tmp && wget https://raw.githubusercontent.com/prasanthc41m/nginx-install/master/nginx-vhost.sh && bash nginx-vhost.sh
 ```
 Insert domain name of the wesite to access using https://example.com
 
